@@ -40,7 +40,8 @@ def add_cliente():
         conn.commit()
         conn.close()
         
-        return 'Cliente agregado exitosamente'
+        # Renderiza formulario.html después de guardar el cliente
+        return render_template('formulario.html')
 
 # Ruta para manejar la adición de habitación
 @app.route('/add_habitacion', methods=['POST'])
@@ -60,7 +61,8 @@ def add_habitacion():
         conn.commit()
         conn.close()
         
-        return 'Habitación agregada exitosamente'
+        # Renderiza formulario.html después de guardar el habitacion
+        return render_template('formulario.html')
 
 @app.route('/add_reserva', methods=['POST'])
 def add_reserva():
@@ -88,7 +90,8 @@ def add_reserva():
         conn.commit()
         conn.close()
         
-        return 'Reserva agregada exitosamente'
+        # Renderiza formulario.html después de guardar la reserva
+        return render_template('formulario.html')
 
 # Ruta para manejar la adición de pagos
 @app.route('/add_pago', methods=['POST'])
@@ -108,7 +111,8 @@ def add_pago():
         conn.commit()
         conn.close()
         
-        return 'Pago registrado exitosamente'
+        # Renderiza formulario.html después de guardar el pago
+        return render_template('formulario.html')
 
 # Ruta para manejar la adición de cancelaciones
 @app.route('/add_cancelacion', methods=['POST'])
@@ -127,7 +131,9 @@ def add_cancelacion():
         conn.commit()
         conn.close()
         
-        return 'Cancelación registrada exitosamente'
+        # Renderiza formulario.html después de guardar el cancelacion
+        
+        return render_template('formulario.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
