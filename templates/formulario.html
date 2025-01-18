@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Reservas</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="formulario.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Gestión de Reservas</h1>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="cliente-tab" data-bs-toggle="tab" data-bs-target="#cliente" type="button" role="tab" aria-controls="cliente" aria-selected="true">Cliente</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="habitacion-tab" data-bs-toggle="tab" data-bs-target="#habitacion" type="button" role="tab" aria-controls="habitacion" aria-selected="false">Habitación</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="reserva-tab" data-bs-toggle="tab" data-bs-target="#reserva" type="button" role="tab" aria-controls="reserva" aria-selected="false">Reserva</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pago-tab" data-bs-toggle="tab" data-bs-target="#pago" type="button" role="tab" aria-controls="pago" aria-selected="false">Pago</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="cancelacion-tab" data-bs-toggle="tab" data-bs-target="#cancelacion" type="button" role="tab" aria-controls="cancelacion" aria-selected="false">Cancelación</button>
+            </li>
+        </ul>
+        <div class="tab-content form-container" id="myTabContent">
+            <!-- Formulario Cliente -->
+            <div class="tab-pane fade show active" id="cliente" role="tabpanel" aria-labelledby="cliente-tab">
+                <form action="/add_cliente" method="POST">
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="apellido" class="form-label">Apellido</label>
+                        <input type="text" class="form-control" id="apellido" name="apellido" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="telefono" class="form-label">Teléfono</label>
+                        <input type="text" class="form-control" id="telefono" name="telefono" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="direccion" class="form-label">Dirección</label>
+                        <textarea class="form-control" id="direccion" name="direccion" rows="3" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-custom">Agregar Cliente</button>
+                </form>
+            </div>
+
+            <!-- Formulario Habitación -->
+            <div class="tab-pane fade" id="habitacion" role="tabpanel" aria-labelledby="habitacion-tab">
+                <form action="/add_habitacion" method="POST">
+                    <div class="mb-3">
+                        <label for="tipo" class="form-label">Tipo</label>
+                        <input type="text" class="form-control" id="tipo" name="tipo" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="precio_por_noche" class="form-label">Precio por Noche</label>
+                        <input type="number" step="0.01" class="form-control" id="precio_por_noche" name="precio_por_noche" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="estado" class="form-label">Estado</label>
+                        <input type="text" class="form-control" id="estado" name="estado" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="capacidad" class="form-label">Capacidad</label>
+                        <input type="number" class="form-control" id="capacidad" name="capacidad" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="detalles_adicionales" class="form-label">Detalles Adicionales</label>
+                        <textarea class="form-control" id="detalles_adicionales" name="detalles_adicionales" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-custom">Agregar Habitación</button>
+                </form>
+            </div>
+
+            <!-- Formulario Reserva -->
+            <div class="tab-pane fade" id="reserva" role="tabpanel" aria-labelledby="reserva-tab">
+                <form action="/add_reserva" method="POST">
+                    <div class="mb-3">
+                        <label for="cliente_id" class="form-label">Cliente ID</label>
+                        <input type="number" class="form-control" id="cliente_id" name="cliente_id" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="habitacion_id" class="form-label">Habitación ID</label>
+                        <input type="number" class="form-control" id="habitacion_id" name="habitacion_id" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="fecha_reserva" class="form-label">Fecha de Reserva</label>
+                        <input type="datetime-local" class="form-control" id="fecha_reserva" name="fecha_reserva" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="fecha_checkin" class="form-label">Fecha de Check-in</label>
+                        <input type="date" class="form-control" id="fecha_checkin" name="fecha_checkin" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="fecha_checkout" class="form-label">Fecha de Check-out</label>
+                        <input type="date" class="form-control" id="fecha_checkout" name="fecha_checkout" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="estado_reserva" class="form-label">Estado de la Reserva</label>
+                        <select class="form-control" id="estado_reserva" name="estado_reserva" required>
+                            <option value="pendiente">Pendiente</option>
+                            <option value="confirmada">Confirmada</option>
+                            <option value="cancelada">Cancelada</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="precio_total" class="form-label">Precio Total</label>
+                        <input type="number" class="form-control" id="precio_total" name="precio_total" step="0.01" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="notas" class="form-label">Notas</label>
+                        <textarea class="form-control" id="notas" name="notas" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Realizar Reserva</button>
+                </form>
+            </div>
+
+            <!-- Formulario Pago -->
+            <div class="tab-pane fade" id="pago" role="tabpanel" aria-labelledby="pago-tab">
+                <form action="/add_pago" method="POST">
+                    <div class="mb-3">
+                        <label for="reserva_id" class="form-label">Reserva ID</label>
+                        <input type="number" class="form-control" id="reserva_id" name="reserva_id" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="monto" class="form-label">Monto</label>
+                        <input type="number" step="0.01" class="form-control" id="monto" name="monto" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="fecha_pago" class="form-label">Fecha de Pago</label>
+                        <input type="datetime-local" class="form-control" id="fecha_pago" name="fecha_pago" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="metodo_pago" class="form-label">Método de Pago</label>
+                        <select class="form-control" id="metodo_pago" name="metodo_pago" required>
+                            <option value="tarjeta">Tarjeta de Crédito</option>
+                            <option value="efectivo">Efectivo</option>
+                            <option value="transferencia">Transferencia Bancaria</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="estado_pago" class="form-label">Estado del Pago</label>
+                        <select class="form-control" id="estado_pago" name="estado_pago" required>
+                            <option value="Pagado">Pagado</option>
+                            <option value="Pendiente">Pendiente</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Registrar Pago</button>
+                </form>
+            </div>
+            
+
+            <!-- Formulario Cancelación -->
+            <div class="tab-pane fade" id="cancelacion" role="tabpanel" aria-labelledby="cancelacion-tab">
+                <form action="/add_cancelacion" method="POST">
+                    <div class="mb-3">
+                        <label for="reserva_id" class="form-label">Reserva ID</label>
+                        <input type="number" class="form-control" id="reserva_id" name="reserva_id" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="fecha_cancelacion" class="form-label">Fecha de Cancelación</label>
+                        <input type="datetime-local" class="form-control" id="fecha_cancelacion" name="fecha_cancelacion" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="razon_cancelacion" class="form-label">Razón de Cancelación</label>
+                        <textarea class="form-control" id="razon_cancelacion" name="razon_cancelacion" rows="3" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="monto_reembolso" class="form-label">Monto de Reembolso</label>
+                        <input type="number" step="0.01" class="form-control" id="monto_reembolso" name="monto_reembolso" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Registrar Cancelación</button>
+                </form>
+                
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="formulario.js"></script>
+</body>
+</html>
