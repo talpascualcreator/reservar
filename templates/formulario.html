@@ -61,7 +61,7 @@
 
             <!-- Formulario Habitación -->
             <div class="tab-pane fade" id="habitacion" role="tabpanel" aria-labelledby="habitacion-tab">
-                <form action="/add_habitacion" method="POST">
+                <form id="habitacionForm" action="/add_habitacion" method="POST" onsubmit="submitForm(event);">
                     <div class="mb-3">
                         <label for="tipo" class="form-label">Tipo</label>
                         <input type="text" class="form-control" id="tipo" name="tipo" required>
@@ -88,7 +88,7 @@
 
             <!-- Formulario Reserva -->
             <div class="tab-pane fade" id="reserva" role="tabpanel" aria-labelledby="reserva-tab">
-                <form action="/add_reserva" method="POST">
+                <form id="reservaForm" action="/add_reserva" method="POST" onsubmit="submitForm(event);">
                     <div class="mb-3">
                         <label for="cliente_id" class="form-label">Cliente ID</label>
                         <input type="number" class="form-control" id="cliente_id" name="cliente_id" required>
@@ -131,7 +131,7 @@
 
             <!-- Formulario Pago -->
             <div class="tab-pane fade" id="pago" role="tabpanel" aria-labelledby="pago-tab">
-                <form action="/add_pago" method="POST">
+                <form id="pagoForm" action="/add_pago" method="POST" onsubmit="submitForm(event);">
                     <div class="mb-3">
                         <label for="reserva_id" class="form-label">Reserva ID</label>
                         <input type="number" class="form-control" id="reserva_id" name="reserva_id" required>
@@ -166,7 +166,7 @@
 
             <!-- Formulario Cancelación -->
             <div class="tab-pane fade" id="cancelacion" role="tabpanel" aria-labelledby="cancelacion-tab">
-                <form action="/add_cancelacion" method="POST">
+                <form id="cancelacionForm" action="/add_cancelacion" method="POST" onsubmit="submitForm(event);">
                     <div class="mb-3">
                         <label for="reserva_id" class="form-label">Reserva ID</label>
                         <input type="number" class="form-control" id="reserva_id" name="reserva_id" required>
