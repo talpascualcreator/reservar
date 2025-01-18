@@ -1,16 +1,16 @@
-function submitForm(event, endpoint) {
-    event.preventDefault();
-    const form = event.target;
-    const formData = new FormData(form);
-    const jsonData = Object.fromEntries(formData.entries());
+function submitForm(event) {
+    event.preventDefault();  // Evitamos que el formulario se envíe inmediatamente.
 
-    fetch(`http://127.0.0.1:5000/${endpoint}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(jsonData),
-    })
-        .then(response => response.json())
-        .then(data => alert(data.message))
-        .catch(error => console.error('Error:', error));
+    // Llamamos a SweetAlert o cualquier otra acción antes de enviar el formulario
+    Swal.fire({
+        title: "Operación realizada exitosamente",
+        icon: "success",
+        draggable: true
+    }).then((result) => {
+        // Después de que el usuario vea el mensaje, enviamos el formulario de forma tradicional.
+        if (result.isConfirmed) {
+            event.target.submit();  // Ahora enviamos el formulario de manera tradicional.
+        }
+    });
 }
 
