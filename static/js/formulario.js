@@ -4,6 +4,7 @@ function submitForm(event) {
     // Llamamos a SweetAlert o cualquier otra acción antes de enviar el formulario
     Swal.fire({
         title: "Operación realizada exitosamente",
+        text: ' Se ha enviado un mensaje a su correo electrónico.',
         icon: "success",
         draggable: true
     }).then((result) => {
