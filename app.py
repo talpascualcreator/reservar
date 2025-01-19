@@ -21,6 +21,8 @@ def get_db_connection():
 def index():
     return render_template('formulario.html')  # Asegúrate de que el formulario esté en templates
 
+
+
 # Ruta para manejar el envío de datos de cliente
 @app.route('/add_cliente', methods=['POST'])
 def add_cliente():
@@ -134,6 +136,12 @@ def add_cancelacion():
         # Renderiza formulario.html después de guardar el cancelacion
         
         return render_template('formulario.html')
+    
+    
+
+
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
