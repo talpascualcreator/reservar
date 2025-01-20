@@ -11,11 +11,7 @@
 </head>
 <body>
 
-    {% if message %}
-        <div class="alert alert-success text-center" role="alert">
-            {{ message }}
-        </div>
-        {% endif %}
+  
     <!-- Header Section -->
     <header class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
@@ -25,10 +21,10 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#rooms">Rooms</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#home">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#rooms">Habitaciones</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">Sobre Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Ubicacion</a></li>
                 </ul>
             </div>
         </div>
@@ -107,27 +103,21 @@
     <section id="contact" class="contact-section py-5">
         <div class="container">
             <div class="text-center mb-5">
-                <h2>Contáctanos</h2>
-                <p>¿Tienes preguntas? Estamos aquí para ayudarte. </p>
+                <h2>Ubicación</h2>
+                <p>Encuéntranos en el centro de Villavicencio, cerca del Parque Central.</p>
             </div>
-            <form action="/api/contact" method="POST">
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <input type="text" name="name" id="name" class="form-control" placeholder="ingrese su nombre" required>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <input type="email" name="email" id="email" class="form-control" placeholder="ingrese su correo" required>
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <textarea name="message" id="message" class="form-control" rows="5" placeholder="ingrese un mensaje" required></textarea>
-                </div>
-                <div class="text-center">
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                </div>
-            </form>
-        </div>
-            
+            <!-- Mapa de Google -->
+            <div class="text-center">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3979.3524303871623!2d-73.64157727652992!3d4.150917796181443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3e2def7adf8dd3%3A0x793edee9b747eb98!2sParque%20Central%20Villavicencio!5e0!3m2!1ses!2sco!4v1737409502840!5m2!1ses!2sco" 
+                    width="100%" 
+                    height="400" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
         </div>
     </section>
 
@@ -139,6 +129,6 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
+    <script src="../static/js/script.js"></script>
     
 </html>
